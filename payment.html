@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Activation | STREAM - Secure Payment</title>
+
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --portal-bg: #020807;
+            --portal-card: #081a17;
+            --portal-title: #d2b47b;
+            --portal-gold-dark: #b59b6a;
+            --portal-text: #ffffff;
+            --portal-muted: #94b2ad;
+            --timer-red: #ff4d4d;
+            --accent: #1dbf73;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--portal-bg);
+            color: var(--portal-text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .payment-container {
+            width: 100%;
+            max-width: 440px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .brand-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-box {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--portal-title);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .brand-section p {
+            font-size: 14px;
+            color: var(--portal-muted);
+            font-weight: 600;
+        }
+
+        .timer-card {
+            background: rgba(255, 77, 77, 0.08);
+            border: 1px solid rgba(255, 77, 77, 0.2);
+            border-radius: 20px;
+            padding: 16px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .timer-card h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+            color: var(--timer-red);
+            font-weight: 700;
+        }
+
+        .timer-display {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--timer-red);
+            font-family: 'Courier New', monospace;
+        }
+
+        .instruction-card {
+            background: var(--portal-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 28px;
+            padding: 28px 24px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .account-details {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 22px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(210, 180, 123, 0.15);
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--portal-muted);
+            font-weight: 700;
+        }
+
+        .value {
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .acc-number-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-top: 8px;
+        }
+
+        .acc-number {
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--portal-title);
+            letter-spacing: 1px;
+        }
+
+        .copy-btn {
+            background: var(--portal-title);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .step {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            width: 24px;
+            height: 24px;
+            background: var(--portal-title);
+            color: #000;
+            border-radius: 50%;
+            font-size: 13px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step p {
+            font-size: 13.5px;
+            color: #ffffff;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .primary-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--portal-title), var(--portal-gold-dark));
+            color: #000;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 18px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(210, 180, 123, 0.2);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(210, 180, 123, 0.3);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 24px;
+            color: var(--portal-muted);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        #copyToast {
+            position: fixed;
+            bottom: 30px;
+            background: var(--accent);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-weight: 800;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+        }
+
+        #copyToast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: #0c2623;
+            padding: 40px 30px;
+            border-radius: 32px;
+            max-width: 380px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-card h3 {
+            color: var(--portal-title);
+            margin-bottom: 12px;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .modal-card p {
+            color: white;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="copyToast">Account Copied</div>
+
+    <div class="modal-overlay" id="tipModal">
+        <div class="modal-card">
+            <i class="bi bi-shield-lock"
+                style="font-size: 48px; color: var(--portal-title); display: block; margin-bottom: 20px;"></i>
+            <h3>Activation Guide</h3>
+            <p>For instant verification, use Palmpay, Moniepoint, or Kuda. Avoid OPay as it may cause delays.</p>
+            <button class="primary-btn" onclick="closeModal()">Proceed to Payment</button>
+        </div>
+    </div>
+
+    <div class="payment-container">
+        <div class="brand-section">
+            <div class="logo-box">
+                <i class="bi bi-water"></i>
+                <span>STREAM</span>
+            </div>
+            <p>Partner License Verification Portal</p>
+        </div>
+
+        <div class="timer-card">
+            <h4>Application Window Expiry</h4>
+            <div class="timer-display" id="timer">10:00</div>
+        </div>
+
+        <div class="instruction-card">
+            <div class="account-details">
+                <div class="detail-item">
+                    <span class="label">Bank Name</span>
+                    <span class="value">Moniepoint MFB</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Account Name</span>
+                    <span class="value">STREAM AFRICA ECOSYSTEM</span>
+                </div>
+                <div class="label" style="margin-top: 15px;">Verified Account Number</div>
+                <div class="acc-number-row">
+                    <span class="acc-number" id="accNo">8142398547</span>
+                    <button class="copy-btn" onclick="copyAccount()">Copy</button>
+                </div>
+                <div class="detail-item"
+                    style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <span class="label">Total Due</span>
+                    <span class="value"
+                        style="color: var(--portal-title); font-size: 22px; font-weight: 900;">₦12,000.00</span>
+                </div>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <p>Transfer <b>₦12,000</b> to the account above.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <p>Screenshot your transaction receipt.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <p>Send receipt via the link below for activation.</p>
+                </div>
+            </div>
+
+            <a href="https://t.me/streamafricaofficialcoach" class="primary-btn">
+                <i class="bi bi-send-check-fill"></i> I Have Paid
+            </a>
+
+            <a href="dashboard.html" class="back-link">
+                <i class="bi bi-arrow-left"></i> Return to Console
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('tipModal');
+        setTimeout(() => modal.classList.add('active'), 800);
+        function closeModal() { modal.classList.remove('active'); }
+
+        let time = 10 * 60;
+        const timerEl = document.getElementById('timer');
+        setInterval(() => {
+            const m = Math.floor(time / 60);
+            const s = time % 60;
+            timerEl.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+            if (time > 0) time--;
+        }, 1000);
+
+        function copyAccount() {
+            navigator.clipboard.writeText("8142398547").then(() => {
+                const toast = document.getElementById('copyToast');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
+            });
+        }
+    </script>
+</body>
+
+</html>
