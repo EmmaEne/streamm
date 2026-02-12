@@ -1,23 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --stream-deep: #020807;
-    /* Super deep forest, almost black */
-    --stream-forest: #081a17;
-    --stream-card: rgba(12, 38, 35, 0.9);
-    /* Solid dark forest green */
-    --stream-accent: #1dbf73;
-    --stream-accent-deep: #0fa968;
-    --stream-ivory: #ffffff;
-    /* pure white for contrast */
+    --stream-deep: #051412;
+    /* Rich, dark charcoal green from flyer background */
+    --stream-forest: #0a211e;
+    /* Dark forest green for sections */
+    --stream-card: rgba(14, 46, 41, 0.95);
+    /* Translucent dark green consistent with flyer boxes */
+    --stream-accent: #127361;
+    /* Premium forest green from flyer logo and highlights */
+    --stream-accent-deep: #0a4d3f;
+    /* Deeper pine green for depth */
+    --stream-ivory: #f0f4f2;
+    /* Off-white from flyer's action labels */
     --stream-gold: #d2b47b;
     --stream-text: #ffffff;
-    /* pure white for maximum legibility */
-    --stream-muted: #94b2ad;
-    /* High-contrast emerald-gray */
-    --stream-glass: rgba(255, 255, 255, 0.08);
-    --stream-border: rgba(255, 255, 255, 0.15);
-    --stream-gradient: linear-gradient(135deg, #1dbf73 0%, #0fa968 100%);
+    --stream-muted: #8ba6a2;
+    /* Muted teal-gray for secondary text */
+    --stream-glass: rgba(255, 255, 255, 0.05);
+    --stream-border: rgba(255, 255, 255, 0.1);
+    --stream-gradient: linear-gradient(135deg, #127361 0%, #0a4d3f 100%);
     --nav-height: 80px;
 }
 
@@ -111,11 +113,11 @@ nav {
 
 .nav-cta {
     background: var(--stream-gradient);
-    color: #042a1e !important;
+    color: #ffffff !important;
     padding: 10px 24px;
     border-radius: 12px;
     font-weight: 800;
-    box-shadow: 0 10px 25px rgba(29, 191, 115, 0.3);
+    box-shadow: 0 10px 25px rgba(18, 115, 97, 0.3);
 }
 
 /* Hero Section */
@@ -124,18 +126,14 @@ header {
     padding-bottom: 80px;
 
     background:
-        radial-gradient(
-            circle at center,
-            rgba(29, 191, 115, 0.35) 0%,
-            rgba(29, 191, 115, 0.15) 55%,
-            transparent 70%
-        ),
-        radial-gradient(
-            circle at center,
-            rgba(2, 8, 7, 1) 0%,
-            rgba(2, 8, 7, 0.95) 45%,
-            rgba(2, 8, 7, 1) 100%
-        );
+        radial-gradient(circle at center,
+            rgba(18, 115, 97, 0.25) 0%,
+            rgba(18, 115, 97, 0.1) 55%,
+            transparent 70%),
+        radial-gradient(circle at center,
+            rgba(5, 20, 18, 1) 0%,
+            rgba(5, 20, 18, 0.95) 45%,
+            rgba(5, 20, 18, 1) 100%);
 }
 
 
@@ -176,18 +174,18 @@ header {
 
 .btn-primary {
     background: var(--stream-gradient);
-    color: #042a1e;
+    color: #ffffff;
     padding: 18px 36px;
     border-radius: 16px;
     font-weight: 800;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 15px 40px rgba(29, 191, 115, 0.4);
+    box-shadow: 0 15px 40px rgba(18, 115, 97, 0.4);
 }
 
 .btn-primary:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(29, 191, 115, 0.5);
+    box-shadow: 0 20px 50px rgba(18, 115, 97, 0.5);
 }
 
 .btn-outline {
@@ -255,7 +253,7 @@ header {
     justify-content: center;
     font-weight: 800;
     font-size: 20px;
-    color: #042a1e;
+    color: #ffffff;
 }
 
 .preview-header div span {
@@ -274,10 +272,10 @@ header {
 }
 
 .preview-balance {
-    background: rgba(29, 191, 115, 0.1);
+    background: rgba(18, 115, 97, 0.1);
     border-radius: 20px;
     padding: 20px;
-    border: 1px solid rgba(29, 191, 115, 0.2);
+    border: 1px solid rgba(18, 115, 126, 0.2);
     text-align: center;
 }
 
@@ -378,7 +376,7 @@ header {
     width: 60px;
     height: 60px;
     background: var(--stream-gradient);
-    color: #042a1e;
+    color: #ffffff;
     border-radius: 18px;
     display: flex;
     align-items: center;
