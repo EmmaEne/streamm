@@ -4,267 +4,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STREAM — Turn Activities Into Income</title>
-    <!-- Favicon placeholder (as seen in source) -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <!-- Bootstrap Icons -->
+    <title>Glamour — Editorial Life. Euro Earnings.</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <meta name="description"
-        content="STREAM bridges creativity, people, and opportunity — transforming everyday digital activity into reliable, real-world income.">
 </head>
 
 <body>
-    <!-- ================= NAVBAR ================= -->
-    <nav>
-        <div class="nav-container">
-            <div class="brand">
-                <i class="bi bi-water"></i>
-                <span>STREAM</span>
-            </div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#features">Features</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#pricing">Pricing</a>
-                <a href="register.html" class="nav-cta">Join Now</a>
-                <a href="login.html" style="opacity: 1; font-weight: 700;">Login</a>
-            </div>
+    <!-- ================= PRELOADER ================= -->
+    <div class="glam-preloader" id="preloader">
+        <svg class="loader-logo" viewBox="0 0 100 100">
+            <g transform="translate(50,50)" fill="currentColor">
+                <ellipse cx="0" cy="-22" rx="10" ry="20" transform="rotate(0)"/>
+                <ellipse cx="0" cy="-22" rx="10" ry="20" transform="rotate(60)"/>
+                <ellipse cx="0" cy="-22" rx="10" ry="20" transform="rotate(120)"/>
+                <ellipse cx="0" cy="-22" rx="10" ry="20" transform="rotate(180)"/>
+                <ellipse cx="0" cy="-22" rx="10" ry="20" transform="rotate(240)"/>
+                <ellipse cx="0" cy="-22" rx="10" ry="20" transform="rotate(300)"/>
+                <circle cx="0" cy="0" r="8"/>
+            </g>
+        </svg>
+        <div class="loader-text" style="font-family: 'Outfit'; font-weight: 900; color: var(--glam-gold); margin-top: 20px; letter-spacing: 5px;">GLAMOUR</div>
+    </div>
+
+    <div class="page-fade-in">
+    <!-- ================= NAVIGATION ================= -->
+    <nav class="nav-editorial" id="mainNav">
+        <a href="index.html" class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 100 100">
+                <g transform="translate(50,50)" fill="currentColor">
+                    <ellipse cx="0" cy="-22" rx="10" ry="20" transform="rotate(0)"/>
+                    <ellipse cx="0" cy="-22" rx="10" ry="20" transform="rotate(60)"/>
+                    <ellipse cx="0" cy="-22" rx="10" ry="20" transform="rotate(120)"/>
+                    <ellipse cx="0" cy="-22" rx="10" ry="20" transform="rotate(180)"/>
+                    <ellipse cx="0" cy="-22" rx="10" ry="20" transform="rotate(240)"/>
+                    <ellipse cx="0" cy="-22" rx="10" ry="20" transform="rotate(300)"/>
+                    <circle cx="0" cy="0" r="8"/>
+                </g>
+            </svg>
+            <span>GLAMOUR</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="login.html">Sign In</a>
+            <a href="register.html" class="nav-cta">The Movement</a>
         </div>
     </nav>
 
-    <!-- ================= HERO ================= -->
-    <header>
-        <div class="hero-container">
-            <div class="hero-text">
-                <h1>Turn <span>Online Engagement</span><br>Into Real Earnings</h1>
-                <p>STREAM bridges creativity, people, and opportunity — transforming everyday digital activity into
-                    reliable, real-world income for Africans and creators globally.</p>
-
-                <div class="hero-actions">
-                    <a href="register.html" class="btn-primary">Start Earning Today</a>
-                    <a href="#features" class="btn-outline">Discover How It Works</a>
-                </div>
-
-                <div class="hero-metrics">
-                    <div class="metric">
-                        <strong>₦12k</strong>
-                        <span>Instant Reward Cashback</span>
-                    </div>
-                    <div class="metric">
-                        <strong>₦5.7k</strong>
-                        <span>Daily Livestream Income</span>
-                    </div>
-                    <div class="metric">
-                        <strong>₦200k+</strong>
-                        <span>Monthly Creator Potential</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DASHBOARD PREVIEW -->
-            <div class="hero-dashboard-preview">
-                <div class="preview-header">
-                    <div class="preview-avatar">S</div>
-                    <div>
-                        <span>Partner Console • Session Active</span>
-                        <strong>STREAM Member <i class="bi bi-patch-check-fill text-accent"
-                                style="color: var(--stream-accent);"></i></strong>
-                    </div>
-                </div>
-
-                <div class="preview-balance">
-                    <span>Available Earnings</span>
-                    <h2>₦ 12,000.00</h2>
-                    <a href="register.html" class="btn-primary"
-                        style="padding: 10px 20px; font-size: 13px; border-radius: 10px; box-shadow: none;">
-                        Withdraw Portfolio
-                    </a>
-                </div>
-
-                <div class="preview-grid">
-                    <div class="preview-item">
-                        <i class="bi bi-play-circle-fill"></i>
-                        <div>Video</div>
-                    </div>
-                    <div class="preview-item">
-                        <i class="bi bi-mic-fill"></i>
-                        <div>Audio</div>
-                    </div>
-                    <div class="preview-item">
-                        <i class="bi bi-broadcast"></i>
-                        <div>Live</div>
-                    </div>
-                </div>
+    <!-- ================= HERO — SPLIT ================= -->
+    <header class="split-screen">
+        <div class="split-visual" style="background-image: linear-gradient(rgba(10,8,6,0.3), rgba(10,8,6,0.3)), url('./img/glam-facetime.png');">
+            <h1 class="hero-big-title">GLAMOUR</h1>
+        </div>
+        <div class="split-content" style="display: flex; flex-direction: column; justify-content: center;">
+            <div data-reveal>
+                <h2 class="text-gold" style="font-family: 'Outfit'; font-size: 40px; text-transform: uppercase; line-height: 1.1; margin-bottom: 24px;">Talk. Connect.<br>Earn in Euros.</h2>
+                <p style="font-size: 16px; margin-bottom: 40px; max-width: 440px;">What if a simple conversation could pay you? With Glam FaceTime, connect with Europeans — chat, guide, share experiences. Your time becomes valuable. Your presence becomes income.</p>
+                <a href="register.html" class="btn-movement-editorial">Secure Slot</a>
             </div>
         </div>
     </header>
 
-    <!-- ================= FEATURES ================= -->
-    <section id="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>The <span>STREAM</span> Ecosystem</h2>
-                <p>Designed for high-performance earnings through four core pillars of digital collaboration.</p>
-            </div>
-
-            <div class="features-grid">
-                <!-- FEATURE 1 -->
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-lightning-charge"></i></div>
-                    <h3>StreamPass</h3>
-                    <p>Unlock the full weight of the ecosystem with a verified digital license.</p>
-                    <ul>
-                        <li><i class="bi bi-check-circle"></i> Priority collab access</li>
-                        <li><i class="bi bi-check-circle"></i> High-yield sessions</li>
-                        <li><i class="bi bi-check-circle"></i> Instant settlement</li>
-                    </ul>
-                </div>
-
-                <!-- FEATURE 2 -->
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-people"></i></div>
-                    <h3>User Trigger</h3>
-                    <p>Onboard new partners using your existing earned revenue.</p>
-                    <ul>
-                        <li><i class="bi bi-check-circle"></i> No external fees</li>
-                        <li><i class="bi bi-check-circle"></i> Automated activation</li>
-                        <li><i class="bi bi-check-circle"></i> Guild scaling tools</li>
-                    </ul>
-                </div>
-
-                <!-- FEATURE 3 -->
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-shop"></i></div>
-                    <h3>Stream Bazaar</h3>
-                    <p>Your personal digital marketplace integrated directly into the dashboard.</p>
-                    <ul>
-                        <li><i class="bi bi-check-circle"></i> List digital assets</li>
-                        <li><i class="bi bi-check-circle"></i> SecureEscrow tech</li>
-                        <li><i class="bi bi-check-circle"></i> Verified buyers only</li>
-                    </ul>
-                </div>
-
-            </div>
+    <!-- ================= VOICEVAULT — REVERSE SPLIT ================= -->
+    <section class="split-screen" style="direction: rtl;">
+        <div class="split-visual" style="background-image: linear-gradient(rgba(10,8,6,0.3), rgba(10,8,6,0.3)), url('./img/glam-voicevault.png');">
+            <h3 class="hero-big-title" style="direction: ltr;">VAULT</h3>
         </div>
-    </section>
-
-    <!-- ================= GALLERY ================= -->
-    <section id="gallery">
-        <div class="container">
-            <div class="section-header">
-                <h2>Explore the <span>STREAM</span> World</h2>
-                <p>Get a glimpse of how users connect, create, and earn globally.</p>
-            </div>
-
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="./img/WhatsApp Image 2026-02-11 at 4.39.44 PM.jpeg"
-                        alt="Live">
-                    <!-- <div class="gallery-overlay"><span>Live Collaborations</span></div> -->
-                </div>
-                <div class="gallery-item">
-                    <img src="./img/WhatsApp Image 2026-02-11 at 4.39.45 PM (1).jpeg"
-                        alt="Creators">
-                    <!-- <div class="gallery-overlay"><span>Creators Network</span></div> -->
-                </div>
-                <div class="gallery-item">
-                    <img src="./img/WhatsApp Image 2026-02-11 at 4.39.45 PM.jpeg"
-                        alt="Marketplace">
-                    <!-- <div class="gallery-overlay"><span>Stream Marketplace</span></div> -->
+        <div class="split-content" style="direction: ltr; display: flex; flex-direction: column; justify-content: center;">
+            <div data-reveal>
+                <h3 class="text-cyan" style="font-family: 'Outfit'; font-size: 40px; text-transform: uppercase; margin-bottom: 24px;">VOICE VAULT</h3>
+                <p style="font-size: 16px; margin-bottom: 30px; max-width: 440px;">Your Voice. Your Fame. Your Income. Share stories, ideas, opinions — and earn every time someone listens.</p>
+                <div style="border-left: 2px solid var(--glam-gold); padding-left: 20px; margin-top: 30px;">
+                    <p class="text-gold" style="font-weight: 800; font-size: 12px; letter-spacing: 2px;">EARNING POTENTIAL</p>
+                    <p style="font-size: 28px; font-family: 'Outfit'; font-weight: 900;">€5.00 / PULSE</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= FAQ ================= -->
-    <section class="faq" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>Common Questions</h2>
-                <p>Everything you need to know before getting started on your journey.</p>
+    <!-- ================= EARLYBIRD — SPLIT ================= -->
+    <section class="split-screen">
+        <div class="split-visual" style="background-image: linear-gradient(rgba(10,8,6,0.3), rgba(10,8,6,0.3)), url('./img/glam-earlybird.png');">
+            <div class="floating-price-badge" style="top: 40px; right: 40px; transform: rotate(0deg); border: 4px solid var(--glam-bg);">
+                <span style="font-size: 32px;">£7</span>
+                <span style="font-size: 10px;">(₦14,000)</span>
             </div>
-
-            <div class="faq-accordion">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What exactly is STREAM?
-                        <i class="bi bi-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>STREAM is an earning platform where users make real money by engaging with audio, video,
-                            images, livestreams, and downloads through verified creator and brand collaborations.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How do I begin earning?
-                        <i class="bi bi-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Simply complete your registration, activate your account, and start engaging with content
-                            using STREAM features like Audio Collab, Video Collab, Snap Collab, and more.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Is the onboarding fee returned?
-                        <i class="bi bi-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes. Your onboarding payment is instantly credited back to you as Stream Cashback (₦12,000),
-                            which you can use within the platform or withdraw after verification.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How soon can I withdraw my earnings?
-                        <i class="bi bi-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Your earnings become withdrawable after successful collaborations, based on STREAM’s payout
-                            schedule shown in your personal dashboard.</p>
-                    </div>
-                </div>
+        </div>
+        <div class="split-content" style="display: flex; flex-direction: column; justify-content: center;">
+            <div data-reveal>
+                <h3 style="font-family: 'Outfit'; font-size: 40px; color: var(--glam-gold); text-transform: uppercase; margin-bottom: 24px;">EARLY BIRD ALERT</h3>
+                <p style="font-size: 16px; margin-bottom: 24px; max-width: 440px;">This discount is Exclusively for Early Birds who book their GlamSlots before the African Launch.</p>
+                <p style="font-size: 14px; color: var(--glam-text-muted); margin-bottom: 40px; max-width: 440px;">Once Glamour launches fully for Africa; the price goes back to full £10 (₦20,000). Secure yours now.</p>
+                <a href="register.html" class="btn-movement-editorial">Join the Movement</a>
             </div>
         </div>
     </section>
 
-    <!-- ================= CTA ================= -->
-    <section id="pricing" class="cta">
-        <div class="container">
-            <h2>Begin Your Earnings Journey With <span>STREAM</span></h2>
-            <p>More than a platform — a new digital income system.</p>
-            <a href="register.html" class="btn-primary">Join STREAM Now</a>
+    <!-- ================= FEATURE HUB — COMPACT ================= -->
+    <section style="padding: 100px var(--gutter);">
+        <div class="container-fluid">
+            <h3 style="font-size: 40px; text-align: center; margin-bottom: 60px; color: var(--glam-gold);">THE FEATURES</h3>
+            <div class="feature-grid-editorial">
+                <div class="feature-cell" data-reveal>
+                    <span class="feature-num">01</span>
+                    <span class="feature-name">GLAM REAL TIME</span>
+                </div>
+                <div class="feature-cell" data-reveal>
+                    <span class="feature-num">02</span>
+                    <span class="feature-name">GLAM CUISINE</span>
+                </div>
+                <div class="feature-cell" data-reveal>
+                    <span class="feature-num">03</span>
+                    <span class="feature-name">GLAM CALL-TIME</span>
+                </div>
+                <div class="feature-cell" data-reveal>
+                    <span class="feature-num">04</span>
+                    <span class="feature-name">GLAM TRANSLATOR</span>
+                </div>
+                <div class="feature-cell" data-reveal>
+                    <span class="feature-num">05</span>
+                    <span class="feature-name">GLAM SCRIPT2CASH</span>
+                </div>
+                <div class="feature-cell" data-reveal>
+                    <span class="feature-num">06</span>
+                    <span class="feature-name">GLAM VOICE VAULT</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- ================= FOOTER ================= -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 STREAM Africa Ecosystem. All digital rights reserved.</p>
+    <footer style="padding: 60px var(--gutter); border-top: 1px solid var(--glass-border); background: var(--glam-bg-accent);">
+        <div class="container-fluid" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h4 style="font-size: 24px; color: var(--glam-white); font-family: 'Outfit';">GLAMOUR</h4>
+                <p style="font-size: 12px; margin-top: 10px;">&copy; 2026. THE FUTURE OF CONNECTION.</p>
+            </div>
+            <div style="display: flex; gap: 30px; font-size: 12px; font-weight: 700;">
+                <a href="terms.html">TERMS</a>
+                <a href="#">INSTAGRAM</a>
+                <a href="#">TWITTER</a>
+            </div>
         </div>
     </footer>
+    </div> <!-- End Page Fade In -->
 
     <script>
-        // FAQ Accordion Logic
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const item = button.parentElement;
-                item.classList.toggle('active');
-            });
+        // Preloader
+        window.addEventListener('load', () => {
+            document.getElementById('preloader').classList.add('hidden');
         });
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Nav Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        // Reveal on scroll
+        const reveal = () => {
+            const elements = document.querySelectorAll('[data-reveal]');
+            elements.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < window.innerHeight * 0.85) {
+                    el.classList.add('revealed');
+                }
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+
+        // Smooth Page Transitions
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('#') && !href.startsWith('https://')) {
+                    e.preventDefault();
+                    document.getElementById('preloader').classList.remove('hidden');
+                    setTimeout(() => { window.location.href = href; }, 800);
+                }
             });
         });
     </script>

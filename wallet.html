@@ -4,9 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Glamour Partner Console</title>
+    <title>Wallet | Glamour Partner Console</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .tx-list-clean {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tx-item-clean {
+            background: var(--glam-bg-card);
+            border: 1px solid var(--glass-border);
+            padding: 20px 30px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tx-item-clean h4 { font-size: 16px; color: white; margin-bottom: 4px; }
+        .tx-item-clean p { font-size: 11px; color: var(--glam-text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        .tx-amount-clean { font-family: 'Outfit'; font-weight: 900; font-size: 18px; }
+    </style>
 </head>
 
 <body>
@@ -26,7 +48,7 @@
     </div>
 
     <div class="dash-wrapper page-fade-in">
-        <!-- SIDEBAR (CLEAN & PREDICTABLE) -->
+        <!-- SIDEBAR -->
         <aside class="dash-sidebar">
             <div style="margin-bottom: 50px;">
                 <a href="index.html" class="nav-logo">
@@ -46,10 +68,10 @@
             </div>
 
             <nav style="display: flex; flex-direction: column; gap: 10px;">
-                <a href="dashboard.html" style="background: rgba(201, 168, 76, 0.1); color: var(--glam-gold); padding: 15px 20px; border-radius: 12px; font-weight: 700; display: flex; align-items: center; gap: 12px;">
+                <a href="dashboard.html" style="padding: 15px 20px; color: var(--glam-text-muted); font-weight: 600; display: flex; align-items: center; gap: 12px; transition: 0.3s;">
                     <i class="bi bi-grid-fill"></i> Hub Console
                 </a>
-                <a href="wallet.html" style="padding: 15px 20px; color: var(--glam-text-muted); font-weight: 600; display: flex; align-items: center; gap: 12px; transition: 0.3s;">
+                <a href="wallet.html" style="background: rgba(201, 168, 76, 0.1); color: var(--glam-gold); padding: 15px 20px; border-radius: 12px; font-weight: 700; display: flex; align-items: center; gap: 12px;">
                     <i class="bi bi-wallet2"></i> Wallet & History
                 </a>
                 <a href="profile.html" style="padding: 15px 20px; color: var(--glam-text-muted); font-weight: 600; display: flex; align-items: center; gap: 12px; transition: 0.3s;">
@@ -66,62 +88,37 @@
 
         <!-- MAIN AREA -->
         <main class="dash-main">
-            <!-- TOPBAR -->
             <div class="dash-topbar">
                 <div>
-                    <h1 style="font-size: 28px; color: white; font-family: 'Outfit'; font-weight: 900;">WELCOME, <span id="userName">PARTNER</span></h1>
-                    <p style="font-size: 13px; color: var(--glam-text-muted);">Manage your digital revenue streams.</p>
-                </div>
-                <div style="display: flex; align-items: center; gap: 20px;">
-                    <div style="text-align: right;">
-                        <p style="font-size: 10px; font-weight: 800; color: var(--glam-gold); letter-spacing: 1px;">GLAM SLOT</p>
-                        <p class="text-cyan" style="font-size: 12px; font-weight: 800;">VERIFIED</p>
-                    </div>
-                    <div style="width: 44px; height: 44px; background: var(--glam-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: var(--glam-bg);" id="userInitial">G</div>
+                    <h1 style="font-size: 28px; color: white; font-family: 'Outfit'; font-weight: 900;">MY WALLET</h1>
+                    <p style="font-size: 13px; color: var(--glam-text-muted);">View your digital earnings and ledger history.</p>
                 </div>
             </div>
 
-            <!-- STATS ROW -->
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 50px;">
-                <div class="stat-card-clean">
-                    <p style="font-size: 11px; font-weight: 800; color: var(--glam-gold); letter-spacing: 2px; margin-bottom: 15px;">TOTAL BALANCE</p>
-                    <p style="font-size: 36px; font-family: 'Outfit'; font-weight: 900; color: white;">€ 0.00</p>
+            <!-- WALLET OVERVIEW -->
+            <div style="background: var(--glam-gold); border-radius: 24px; padding: 40px; margin-bottom: 50px; color: var(--glam-bg); position: relative; overflow: hidden;">
+                <div style="position: relative; z-index: 2;">
+                    <p style="font-size: 12px; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px;">AVAILABLE FOR WITHDRAWAL</p>
+                    <p style="font-size: 56px; font-family: 'Outfit'; font-weight: 900; margin-bottom: 20px;">€ 0.00</p>
+                    <a href="payment.html" style="background: var(--glam-bg); color: white; padding: 12px 30px; border-radius: 100px; font-weight: 800; font-size: 13px; display: inline-block;">Request Payout</a>
                 </div>
-                <div class="stat-card-clean">
-                    <p style="font-size: 11px; font-weight: 800; color: var(--glam-gold); letter-spacing: 2px; margin-bottom: 15px;">EARNING PULSES</p>
-                    <p style="font-size: 36px; font-family: 'Outfit'; font-weight: 900; color: white;">0</p>
-                </div>
-                <div class="stat-card-clean">
-                    <p style="font-size: 11px; font-weight: 800; color: var(--glam-gold); letter-spacing: 2px; margin-bottom: 15px;">REFERRAL SLOTS</p>
-                    <p style="font-size: 36px; font-family: 'Outfit'; font-weight: 900; color: white;">0</p>
-                </div>
+                <i class="bi bi-wallet2" style="position: absolute; right: -20px; bottom: -20px; font-size: 200px; color: rgba(0,0,0,0.05); transform: rotate(-15deg);"></i>
             </div>
 
-            <!-- OPPORTUNITIES -->
-            <h3 style="font-size: 20px; color: white; margin-bottom: 30px; font-family: 'Outfit'; font-weight: 800;">ACTIVE REVENUE STREAMS</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-                <div class="opp-card-clean">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div class="opp-icon-box"><i class="bi bi-camera-video-fill"></i></div>
-                        <span class="text-cyan" style="font-weight: 800; font-size: 12px; background: rgba(46, 234, 163, 0.1); padding: 5px 12px; border-radius: 100px;">€3.00 / CALL</span>
-                    </div>
-                    <div>
-                        <h4 style="font-size: 22px; color: white; margin-bottom: 10px;">GLAM FACETIME</h4>
-                        <p style="color: var(--glam-text-muted); font-size: 14px;">Connect with international partners in real-time. High engagement pulse area.</p>
-                    </div>
-                    <a href="#" class="btn-movement-editorial" style="text-align: center; padding: 12px; font-size: 13px;">ENTER STREAM</a>
+            <!-- RECENT TRANSACTIONS -->
+            <h3 style="font-size: 20px; color: white; margin-bottom: 24px; font-family: 'Outfit'; font-weight: 800;">RECENT LEDGER</h3>
+            <div class="tx-list-clean">
+                <div style="padding: 60px; text-align: center; border: 1px dashed var(--glass-border); border-radius: 20px;">
+                    <p style="color: var(--glam-text-muted); font-size: 14px;">No transactions recorded. Active your first stream to begin.</p>
                 </div>
-
-                <div class="opp-card-clean">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div class="opp-icon-box"><i class="bi bi-mic-fill"></i></div>
-                        <span class="text-cyan" style="font-weight: 800; font-size: 12px; background: rgba(46, 234, 163, 0.1); padding: 5px 12px; border-radius: 100px;">€5.00 / PULSE</span>
-                    </div>
+                
+                <!-- Mock -->
+                <div class="tx-item-clean">
                     <div>
-                        <h4 style="font-size: 22px; color: white; margin-bottom: 10px;">VOICE VAULT</h4>
-                        <p style="color: var(--glam-text-muted); font-size: 14px;">Broadcast your cultural stories and ideas through the global voice network.</p>
+                        <h4>Partner Activation</h4>
+                        <p>Slot Verified • April 2026</p>
                     </div>
-                    <a href="#" class="btn-movement-editorial" style="text-align: center; padding: 12px; font-size: 13px;">LAUNCH VAULT</a>
+                    <div class="tx-amount-clean" style="color: #FF4D4D;">-₦14,000</div>
                 </div>
             </div>
         </main>
@@ -135,10 +132,10 @@
 
     <!-- Mobile Bottom Nav -->
     <nav class="mobile-dash-nav" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(10, 8, 6, 0.95); backdrop-filter: blur(20px); border-top: 1px solid var(--glass-border); padding: 15px 0; justify-content: space-around; z-index: 1000;">
-        <a href="dashboard.html" style="color: var(--glam-gold); display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; font-weight: 700;">
+        <a href="dashboard.html" style="color: var(--glam-text-muted); display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; font-weight: 700;">
             <i class="bi bi-grid-fill" style="font-size: 18px;"></i> HUB
         </a>
-        <a href="wallet.html" style="color: var(--glam-text-muted); display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; font-weight: 700;">
+        <a href="wallet.html" style="color: var(--glam-gold); display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; font-weight: 700;">
             <i class="bi bi-wallet2" style="font-size: 18px;"></i> WALLET
         </a>
         <a href="profile.html" style="color: var(--glam-text-muted); display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; font-weight: 700;">
@@ -147,18 +144,10 @@
     </nav>
 
     <script>
-        // Preloader
         window.addEventListener('load', () => {
             document.getElementById('preloader').classList.add('hidden');
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const fullName = localStorage.getItem('fx_username') || 'PARTNER';
-            document.getElementById('userName').textContent = fullName.toUpperCase();
-            document.getElementById('userInitial').textContent = fullName.charAt(0).toUpperCase();
-        });
-
-        // Smooth Linking Transitions
         document.querySelectorAll('a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
