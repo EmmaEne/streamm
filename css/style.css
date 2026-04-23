@@ -330,13 +330,14 @@ img { max-width: 100%; display: block; }
 
 .feature-cell:hover .feature-num {
     color: var(--glam-cyan);
-    transform: translateX(5px);
+    transform: translateX(10px);
+    opacity: 1;
 }
 
 .feature-num {
-    font-size: 50px;
+    font-size: 72px;
     font-weight: 900;
-    color: rgba(201, 168, 76, 0.05);
+    color: rgba(201, 168, 76, 0.2);
     transition: all 0.5s ease;
 }
 
@@ -393,12 +394,80 @@ img { max-width: 100%; display: block; }
 
 /* ============ RESPONSIVE — REBUILT ============ */
 @media (max-width: 1024px) {
-    .hero-split { grid-template-columns: 1fr; }
-    .hero-image-editorial { height: 50vh; border-radius: 0; margin: 0 calc(-1 * var(--gutter)); }
-    .layered-text { grid-column: 1 / 13; border-radius: 0; margin-top: -100px; }
-    .layered-visual { grid-column: 1 / 13; height: 50vh; }
-    .earlybird-editorial { flex-direction: column; gap: 60px; }
-    .earlybird-visual-staggered { width: 100%; }
+    :root {
+        --gutter: 24px;
+        --nav-height: 70px;
+    }
+
+    .split-screen {
+        grid-template-columns: 1fr;
+    }
+
+    .split-visual {
+        height: 40vh;
+        position: relative;
+        padding: 40px var(--gutter);
+    }
+
+    .split-content {
+        padding: 40px var(--gutter);
+    }
+
+    .hero-big-title {
+        font-size: clamp(40px, 12vw, 80px);
+    }
+
+    .layered-text {
+        padding: 40px var(--gutter);
+        margin-top: -60px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .earlybird-visual-staggered {
+        width: 100%;
+    }
+
+    .earlybird-visual-staggered img {
+        height: 350px;
+    }
+
+    .floating-price-badge {
+        width: 100px;
+        height: 100px;
+        right: -10px;
+    }
+
+    .feature-grid-editorial {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .feature-grid-editorial {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links a:not(.nav-cta) {
+        display: none; /* Hide regular links, keep CTA */
+    }
+
+    .dash-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .stat-card-clean {
+        padding: 20px;
+    }
+
+    .stat-card-clean p:last-child {
+        font-size: 28px;
+    }
+
+    .dash-main {
+        padding-bottom: 100px; /* Space for mobile nav */
+    }
 }
 
 /* ============ PREMIUM DASHBOARD (Simplified) ============ */
@@ -476,6 +545,7 @@ img { max-width: 100%; display: block; }
     .dash-wrapper { grid-template-columns: 1fr; }
     .dash-sidebar { display: none; }
     .mobile-dash-header { display: flex !important; }
+    .mobile-dash-nav { display: flex !important; }
 }
 
 /* Reveal Animations */
