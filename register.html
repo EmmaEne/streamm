@@ -102,15 +102,9 @@
             <p style="color: var(--glam-text-muted); margin-bottom: 60px;">Complete your digital profile to join the movement.</p>
 
             <form id="registerForm">
-                <div class="form-grid-editorial">
-                    <div class="field-group">
-                        <span class="input-label">First Name</span>
-                        <input type="text" id="firstName" class="input-editorial" placeholder="ADAEZE" required>
-                    </div>
-                    <div class="field-group">
-                        <span class="input-label">Last Name</span>
-                        <input type="text" class="input-editorial" placeholder="OKAFOR" required>
-                    </div>
+                <div class="field-group">
+                    <span class="input-label">Full Name</span>
+                    <input type="text" id="fullName" class="input-editorial" placeholder="ADAEZE OKAFOR" required>
                 </div>
 
                 <div class="field-group">
@@ -123,19 +117,14 @@
                     <input type="tel" class="input-editorial" placeholder="+234 ..." required>
                 </div>
 
-                <div class="field-group">
-                    <span class="input-label">Secure Access Key</span>
-                    <input type="password" class="input-editorial" placeholder="••••••••" required>
-                </div>
 
                 <div style="margin-bottom: 40px; display: flex; gap: 10px; align-items: flex-start;">
                     <input type="checkbox" required style="margin-top: 4px;">
-                    <p style="font-size: 12px; color: var(--glam-text-muted);">I agree to the <a href="terms.html" class="text-gold">Partnership Terms of Service</a> and acknowledge the movement rules.</p>
+                    <p style="font-size: 12px; color: var(--glam-text-muted);">I agree to the Partnership rules and acknowledge the movement.</p>
                 </div>
 
-                <button type="submit" class="btn-movement-editorial" style="width: 100%; text-align: center; cursor: pointer;">SECURE MY SLOT</button>
+                <button type="submit" class="btn-movement-editorial" style="width: 100%; text-align: center; cursor: pointer;">PROCEED TO PAYMENT</button>
 
-                <p style="margin-top: 40px; text-align: center; font-size: 14px;">ALREADY A PARTNER? <a href="login.html" class="text-gold" style="font-weight: 800;">SIGN IN</a></p>
             </form>
         </div>
     </div>
@@ -148,11 +137,11 @@
 
         document.getElementById('registerForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const firstName = document.getElementById('firstName').value;
-            localStorage.setItem('fx_username', firstName);
+            const fullName = document.getElementById('fullName').value;
+            localStorage.setItem('fx_username', fullName);
             
             document.getElementById('preloader').classList.remove('hidden');
-            setTimeout(() => { window.location.href = 'dashboard.html'; }, 1000);
+            setTimeout(() => { window.location.href = 'payments.html'; }, 1000);
         });
 
         // Smooth Transitions
