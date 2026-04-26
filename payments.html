@@ -3,51 +3,283 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verification Portal | Glamour</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Payment Gateway | Glamour</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .pay-split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        :root {
+            --gateway-bg: #0A0806;
+            --card-bg: #14110E;
+            --accent-gold: #C9A84C;
+            --accent-cyan: #2EEAA3;
+            --text-main: #FFFFFF;
+            --text-muted: #7A746A;
+            --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            background-color: var(--gateway-bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            font-family: 'DM Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .gateway-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 40px 24px 140px 24px;
             min-height: 100vh;
-        }
-
-        .pay-visual {
-            background: var(--glam-bg-accent);
-            padding: 60px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 30px;
         }
 
-        .pay-form {
-            background: var(--glam-bg);
-            padding: 80px 60px;
+        /* Header & Timer */
+        .gateway-header {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 0;
         }
 
-        .receipt-card-refined {
-            background: var(--glam-bg);
-            border: 1px solid var(--glam-gold);
-            padding: 30px;
-            position: relative;
-        }
-
-        .acc-number-refined {
-            font-size: clamp(24px, 4vw, 40px);
+        .header-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 52px;
             font-weight: 900;
-            color: var(--glam-gold);
-            margin: 15px 0;
-            font-family: 'Outfit';
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -2px;
+            color: var(--text-main);
         }
 
-        @media (max-width: 1024px) {
-            .pay-split { grid-template-columns: 1fr; }
-            .pay-visual, .pay-form { padding: 40px; }
+        .timer-badge {
+            background: rgba(255, 77, 77, 0.1);
+            color: #FF4D4D;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 77, 77, 0.2);
+        }
+
+        /* Top Summary Card */
+        .summary-card {
+            background: var(--card-bg);
+            border-radius: 32px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: var(--shadow-premium);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-category {
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            margin-bottom: 40px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .bank-info {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .info-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .info-label {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .info-value {
+            font-size: 24px;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-main);
+        }
+
+        .acc-number-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .acc-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--accent-gold);
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .copy-button {
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .copy-button:active {
+            transform: scale(0.95);
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+            margin: 40px 0;
+        }
+
+        .total-due-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .amount-due {
+            font-size: 72px;
+            font-weight: 900;
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-main);
+            letter-spacing: -4px;
+            line-height: 0.85;
+        }
+
+        /* Activation Steps */
+        .activation-card {
+            background: transparent;
+            padding: 10px 0;
+        }
+
+        .activation-card h3 {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .steps-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .step-indicator {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--accent-gold);
+            font-family: 'Outfit', sans-serif;
+            padding-top: 2px;
+        }
+
+        .step-text {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .step-text strong {
+            color: var(--text-main);
+            font-weight: 800;
+        }
+
+        /* Sticky Footer */
+        .footer-cta-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 24px;
+            background: linear-gradient(to top, var(--gateway-bg) 90%, transparent);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+        }
+
+        .primary-btn {
+            background: var(--accent-gold);
+            color: var(--gateway-bg);
+            width: 100%;
+            max-width: 500px;
+            padding: 24px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(201, 168, 76, 0.2);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .primary-btn:active {
+            transform: scale(0.97);
+            filter: brightness(0.9);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .delay-3 { animation-delay: 0.3s; opacity: 0; }
+
+        @media (min-width: 1024px) {
+            .gateway-container {
+                padding-top: 60px;
+            }
         }
     </style>
 </head>
@@ -68,59 +300,86 @@
         </svg>
     </div>
 
-    <div class="pay-split page-fade-in">
-        <div class="pay-visual">
-            <h2 style="font-size: 40px; color: var(--glam-white); margin-bottom: 30px; font-family: 'Outfit'; font-weight: 900;">LICENSE<br>VERIFICATION</h2>
+    <div class="gateway-container">
+        <!-- Header -->
+        <header class="gateway-header animate-fade-up">
+            <div class="header-title">LICENSE VERIFICATION</div>
+            <div class="timer-badge">
+                <i class="bi bi-clock-fill"></i>
+                <span id="timer">10:00</span>
+            </div>
+        </header>
+
+        <!-- Summary Card -->
+        <div class="summary-card animate-fade-up delay-1">
+            <span class="card-category">ACTIVE GATEWAY</span>
             
-            <div class="receipt-card-refined">
-                <p class="text-gold" style="font-weight: 800; font-size: 10px; letter-spacing: 1px;">BANK</p>
-                <p style="font-size: 16px; font-weight: 700; margin-bottom: 15px;">FAIRMONEY</p>
+            <div class="bank-info">
+                <div class="info-group">
+                    <span class="info-label">BANK</span>
+                    <span class="info-value">FAIRMONEY</span>
+                </div>
                 
-                <p class="text-gold" style="font-weight: 800; font-size: 10px; letter-spacing: 1px;">ACCOUNT HOLDER</p>
-                <p style="font-size: 16px; font-weight: 700; margin-bottom: 15px;">Glory Ojah</p>
+                <div class="info-group">
+                    <span class="info-label">ACCOUNT HOLDER</span>
+                    <span class="info-value">Glory Ojah</span>
+                </div>
                 
-                <p class="text-gold" style="font-weight: 800; font-size: 10px; letter-spacing: 1px;">ACCOUNT NUMBER</p>
-                <div class="acc-number-refined" id="accNo">2010914967</div>
-                
-                <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 30px; border-top: 1px dashed var(--glass-border); padding-top: 20px;">
-                    <div>
-                        <p class="text-gold" style="font-weight: 800; font-size: 10px;">TOTAL DUE</p>
-                        <p class="text-cyan" style="font-size: 24px; font-weight: 900;">₦14,000</p>
-                    </div>
-                    <button onclick="copyAccount()" class="btn-movement-editorial" style="padding: 8px 16px; font-size: 11px;">COPY</button>
+                <div class="info-group acc-number-container">
+                    <span class="info-label">ACCOUNT NUMBER</span>
+                    <span class="acc-number" id="accNo">2010914967</span>
+                    <button onclick="copyAccount()" class="copy-button">
+                        <i class="bi bi-layers-fill"></i> COPY ACCOUNT
+                    </button>
                 </div>
             </div>
 
-            <div style="margin-top: 30px; text-align: center; color: #FF4D4D; font-weight: 800; font-size: 20px;" id="timer">10:00</div>
+            <div class="divider"></div>
+
+            <div class="total-due-section">
+                <span class="info-label">TOTAL DUE</span>
+                <div class="amount-due">₦14,000</div>
+            </div>
         </div>
 
-        <div class="pay-form">
-
-            <h3 style="font-size: 28px; color: var(--glam-white); margin-bottom: 24px; font-family: 'Outfit'; font-weight: 900;">ACTIVATION</h3>
-            
-            <div style="display: flex; flex-direction: column; gap: 24px;">
-                <div style="border-left: 3px solid var(--glam-gold); padding-left: 15px;">
-                    <p class="text-gold" style="font-weight: 900; font-size: 11px;">01</p>
-                    <p style="font-size: 15px;">Transfer exactly <b>₦14,000</b> to the ecosystem account.</p>
+        <!-- Activation Steps -->
+        <div class="activation-card animate-fade-up delay-2">
+            <h3>ACTIVATION STEPS</h3>
+            <div class="steps-flow">
+                <div class="step-item">
+                    <div class="step-indicator">01</div>
+                    <div class="step-text">Transfer exactly <strong>₦14,000</strong> to the account above.</div>
                 </div>
-                <div style="border-left: 3px solid var(--glam-gold); padding-left: 15px;">
-                    <p class="text-gold" style="font-weight: 900; font-size: 11px;">02</p>
-                    <p style="font-size: 15px;">Capture your transaction receipt proof.</p>
+                <div class="step-item">
+                    <div class="step-indicator">02</div>
+                    <div class="step-text">Capture a clear <strong>receipt proof</strong> of the transaction.</div>
                 </div>
-                <div style="border-left: 3px solid var(--glam-gold); padding-left: 15px;">
-                    <p class="text-gold" style="font-weight: 900; font-size: 11px;">03</p>
-                    <p style="font-size: 15px;">Submit to our official coach for verification.</p>
+                <div class="step-item">
+                    <div class="step-indicator">03</div>
+                    <div class="step-text">Submit your proof to the <strong>official coach</strong> for instant activation.</div>
                 </div>
             </div>
+        </div>
 
-            <a href="https://t.me/Glamourofficialco?text=I%20have%20made%20Payment" class="btn-movement-editorial" style="margin-top: 40px; text-align: center; padding: 16px;">I HAVE MADE PAYMENT</a>
+        <!-- Trust Indicator -->
+        <div style="text-align: center; color: var(--text-muted); font-size: 11px; margin-top: 10px;" class="animate-fade-up delay-3">
+            <i class="bi bi-shield-lock-fill" style="color: var(--accent-cyan);"></i> SECURE ECOSYSTEM VERIFICATION
+        </div>
+
+        <!-- Sticky Footer -->
+        <div class="footer-cta-container animate-fade-up delay-3">
+            <a href="https://t.me/Glamourofficialco?text=I%20have%20made%20Payment" class="primary-btn">
+                I HAVE MADE PAYMENT
+            </a>
         </div>
     </div>
 
     <script>
         // Preloader
         window.addEventListener('load', () => {
-            document.getElementById('preloader').classList.add('hidden');
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 500);
         });
 
         // Timer
@@ -133,23 +392,23 @@
             if (time > 0) time--;
         }, 1000);
 
+        // Copy Function
         function copyAccount() {
-            navigator.clipboard.writeText("2010914967").then(() => {
-                alert("Account Number Copied");
+            const accNo = document.getElementById('accNo').textContent;
+            navigator.clipboard.writeText(accNo).then(() => {
+                const btn = document.querySelector('.copy-button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="bi bi-check2-circle"></i> COPIED!';
+                btn.style.borderColor = 'var(--accent-cyan)';
+                btn.style.color = 'var(--accent-cyan)';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.borderColor = 'rgba(201, 168, 76, 0.3)';
+                    btn.style.color = 'var(--accent-gold)';
+                }, 2000);
             });
         }
-
-        // Smooth Transitions
-        document.querySelectorAll('a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href && !href.startsWith('#') && !href.startsWith('https://')) {
-                    e.preventDefault();
-                    document.getElementById('preloader').classList.remove('hidden');
-                    setTimeout(() => { window.location.href = href; }, 800);
-                }
-            });
-        });
     </script>
 </body>
 
